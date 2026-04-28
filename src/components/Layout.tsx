@@ -51,7 +51,7 @@ export default function Layout() {
           <Link to="/" className="flex items-center gap-2">
             <img 
               src="/logo.png" 
-              alt="VEVA Lavage Logo" 
+              alt="Veva Automobile Logo" 
               className="h-10 w-auto object-contain" 
             />
           </Link>
@@ -123,7 +123,7 @@ export default function Layout() {
             <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
               <Droplets className="h-5 w-5 text-[#6bb315]" />
               <span className="text-xl font-bold tracking-tight text-white uppercase italic">
-                VEVA <span className="text-[#6bb315]">Lavage</span>
+                Veva <span className="text-[#6bb315]">Automobile</span>
               </span>
             </div>
             <p className="text-sm text-zinc-400 mb-1">
@@ -136,7 +136,7 @@ export default function Layout() {
           </div>
           <div className="text-sm text-zinc-500">
             <p className="mb-2">
-              © {new Date().getFullYear()} VEVA Lavage Genève. Tous droits réservés.
+              © {new Date().getFullYear()} Veva Automobile Genève. Tous droits réservés.
             </p>
             <p className="text-xs text-zinc-600">
               Propre à fond, dedans comme dehors! Un lavage complet pour une voiture impeccable.

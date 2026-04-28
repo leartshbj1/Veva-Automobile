@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { collection, doc, setDoc } from "firebase/firestore";
-import { db, auth } from "@/firebase";
 import * as motion from "motion/react-client";
 
 export default function Contact() {
@@ -14,25 +12,26 @@ export default function Contact() {
     e.preventDefault();
     setLoading(true);
     const fd = new FormData(e.currentTarget);
-    const data = {
-      userId: auth.currentUser?.uid || "anonymous",
-      name: fd.get("name") as string,
-      email: fd.get("email") as string,
-      message: fd.get("message") as string,
-      createdAt: new Date(),
-    };
+    const name = fd.get("name") as string;
+    const email = fd.get("email") as string;
+    const vehicle = fd.get("vehicle") as string;
+    const message = fd.get("message") as string;
 
-    try {
-      const newRef = doc(collection(db, "contactMessages"));
-      await setDoc(newRef, data);
-      setSuccess(true);
-      e.currentTarget.reset();
-    } catch (error) {
-      console.error(error);
-      alert("Une erreur est survenue");
-    } finally {
-      setLoading(false);
-    }
+    const msg = `Bonjour Veva Automobile,
+
+Nom: ${name}
+Email: ${email}
+Véhicule: ${vehicle}
+
+Message: 
+${message}`;
+
+    const whatsappUrl = `https://wa.me/41797890190?text=${encodeURIComponent(msg)}`;
+    window.open(whatsappUrl, '_blank');
+    
+    setSuccess(true);
+    e.currentTarget.reset();
+    setLoading(false);
   };
 
   return (
@@ -113,6 +112,10 @@ export default function Contact() {
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm font-medium text-zinc-300">Adresse email</label>
                 <Input id="email" name="email" type="email" required placeholder="vous@exemple.com" className="rounded-xl h-12 bg-zinc-900/50 outline-none" />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="vehicle" className="text-sm font-medium text-zinc-300">Marque et modèle du véhicule</label>
+                <Input id="vehicle" name="vehicle" required placeholder="ex: Volkswagen Golf" className="rounded-xl h-12 bg-zinc-900/50 outline-none" />
               </div>
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium text-zinc-300">Message</label>

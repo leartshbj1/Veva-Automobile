@@ -75,7 +75,7 @@ ${notes}`;
   };
 
   const createWhatsAppLink = () => {
-    const msg = encodeURIComponent(`Bonjour VEVA Lavage Genève,\nJe représente une entreprise et nous avons une flotte de ${vehicleCount} véhicules à laver.\nD'après votre simulateur, l'estimation est de ${totalPrice} CHF (${unitPrice} CHF/véhicule).\nPouvons-nous en discuter immédiatement ?`);
+    const msg = encodeURIComponent(`Bonjour Veva Automobile Genève,\nJe représente une entreprise et nous avons une flotte de ${vehicleCount} véhicules à laver.\nD'après votre simulateur, l'estimation est de ${totalPrice} CHF (${unitPrice} CHF/véhicule).\nPouvons-nous en discuter immédiatement ?`);
     return `https://wa.me/41797890190?text=${msg}`;
   };
 
@@ -230,7 +230,7 @@ ${notes}`;
             )}
 
             <div className="mt-16 space-y-6">
-              <h4 className="font-medium text-white/90">Pourquoi choisir VEVA Lavage ?</h4>
+              <h4 className="font-medium text-white/90">Pourquoi choisir Veva Automobile ?</h4>
               <ul className="space-y-4">
                 <li className="flex items-start gap-4">
                   <CheckCircle2 className="w-5 h-5 text-[#6bb315] flex-shrink-0 mt-0.5" />

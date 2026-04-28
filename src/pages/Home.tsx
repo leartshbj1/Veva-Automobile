@@ -28,7 +28,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="mx-auto mt-6 max-w-2xl text-lg text-zinc-300 normal-case mb-10 font-light"
           >
-            VEVA Lavage est votre spécialiste du nettoyage automobile intérieur et extérieur à Genève. Un soin minutieux de la main de l'homme, des produits professionnels, et un véhicule comme neuf.
+            Veva Automobile est votre spécialiste du nettoyage automobile intérieur et extérieur à Genève. Un soin minutieux de la main de l'homme, des produits professionnels, et un véhicule comme neuf.
           </motion.p>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}

@@ -54,7 +54,7 @@ export default function Gallery() {
             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
             <img 
               src={src} 
-              alt={`Réalisation VEVA Lavage ${idx + 1}`} 
+              alt={`Réalisation Veva Automobile ${idx + 1}`} 
               className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               loading="lazy"
             />
