@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "Appointment": {
+      "title": "Appointment",
+      "description": "A booking for a car wash",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Google Auth UID" },
+        "service": { "type": "string", "enum": ["Citadine", "Moyenne", "Grande"] },
+        "date": { "type": "string", "description": "ISO date for the appointment" },
+        "time": { "type": "string", "description": "Time of the appointment" },
+        "customerName": { "type": "string" },
+        "customerEmail": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "vehicleModel": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "completed", "cancelled"] },
+        "createdAt": { "type": "timestamp" },
+        "updatedAt": { "type": "timestamp" }
+      },
+      "required": ["userId", "service", "date", "time", "customerName", "customerPhone", "status", "createdAt", "updatedAt"]
+    },
+    "ContactMessage": {
+      "title": "ContactMessage",
+      "description": "A message from the contact form",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "message": { "type": "string" },
+        "createdAt": { "type": "timestamp" }
+      },
+      "required": ["userId", "name", "email", "message", "createdAt"]
+    }
+  },
+  "firestore": {
+    "appointments/{appointmentId}": {
+      "schema": "Appointment",
+      "description": "User appointments"
+    },
+    "contactMessages/{messageId}": {
+      "schema": "ContactMessage",
+      "description": "User contact messages"
+    }
+  }
+}
