@@ -5,9 +5,9 @@ service cloud.firestore {
       allow read, write: if false;
     }
     match /appointments/{appointmentId} {
-      allow list, read: if request.auth != null && resource.data.userId == request.auth.uid;
-      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow list, read: if true;
+      allow create: if true;
+      allow update, delete: if true;
     }
     match /contactMessages/{messageId} {
       allow create: if true;
