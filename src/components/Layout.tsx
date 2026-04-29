@@ -1,10 +1,12 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { Menu, X, Droplets } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { AnimatePresence } from "motion/react";
 import * as motion from "motion/react-client";
 import Lenis from "lenis";
+
+import { ErrorBoundary } from "./ErrorBoundary";
 
 export default function Layout() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,6 +41,7 @@ export default function Layout() {
   const navigation = [
     { name: "Accueil", href: "/" },
     { name: "Services", href: "/services" },
+    { name: "Réserver", href: "/booking" },
     { name: "Entreprises", href: "/fleet" },
     { name: "Galerie", href: "/gallery" },
     { name: "Contact", href: "/contact" },
@@ -112,7 +115,9 @@ export default function Layout() {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            <Outlet />
+            <ErrorBoundary>
+          <Outlet />
+        </ErrorBoundary>
           </motion.div>
         </AnimatePresence>
       </main>
@@ -121,7 +126,6 @@ export default function Layout() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
           <div>
             <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
-              <Droplets className="h-5 w-5 text-[#6bb315]" />
               <span className="text-xl font-bold tracking-tight text-white uppercase italic">
                 Veva <span className="text-[#6bb315]">Automobile</span>
               </span>

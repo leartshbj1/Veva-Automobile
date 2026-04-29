@@ -9,6 +9,7 @@ import Fleet from "./pages/Fleet";
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
+import * as motion from "motion/react-client";
 
 export default function App() {
   const [init, setInit] = useState(true);
@@ -21,7 +22,25 @@ export default function App() {
     return () => unsubscribe();
   }, []);
 
-  if (init) return null;
+  if (init) {
+    return (
+      <div className="min-h-screen bg-black flex flex-col items-center justify-center">
+        <motion.img 
+          src="/logo.png" 
+          alt="Veva Automobile Logo" 
+          className="h-16 w-auto object-contain mb-8"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.8,
+            repeat: Infinity,
+            repeatType: "reverse"
+          }}
+        />
+        <div className="w-8 h-8 border-4 border-[#6bb315] border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   return (
     <BrowserRouter>
