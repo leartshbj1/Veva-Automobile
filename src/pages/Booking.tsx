@@ -5,6 +5,7 @@ import { Input } from "@/components/Input";
 import { auth, db } from "@/firebase";
 import { collection, doc, setDoc, query, where, getDocs } from "firebase/firestore";
 import * as motion from "motion/react-client";
+import { Helmet } from "react-helmet-async";
 
 const ALL_SLOTS = ["08:30", "10:00", "11:30", "13:30", "15:00", "16:30", "18:00"];
 
@@ -173,6 +174,11 @@ export default function Booking() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-16 sm:py-24 relative">
+      <Helmet>
+        <title>Veva Automobile Genève - Réservation en Ligne</title>
+        <meta name="description" content="Réservez en ligne votre lavage auto à Genève. Choisissez votre formule, votre date et votre horaire pour un nettoyage de voiture sur-mesure." />
+        <link rel="canonical" href="https://www.vevaautomobile.ch/booking" />
+      </Helmet>
       <motion.div 
         initial={{ opacity: 0, y: 20 }} 
         animate={{ opacity: 1, y: 0 }}

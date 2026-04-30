@@ -3,10 +3,17 @@ import { Button } from "@/components/Button";
 import { CheckCircle2, Droplets, Sparkles } from "lucide-react";
 import * as motion from "motion/react-client";
 import { Faq } from "@/components/Faq";
+import { Helmet } from "react-helmet-async";
 
 export default function Home() {
   return (
     <div className="flex flex-col">
+      <Helmet>
+        <title>Veva Automobile Genève - Accueil</title>
+        <meta name="description" content="Découvrez Veva Automobile, expert du lavage de voiture Genève. Service premium de nettoyage automobile intérieur et extérieur à la main." />
+        <link rel="canonical" href="https://www.vevaautomobile.ch/" />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-zinc-950 py-24 sm:py-32">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-30" />

@@ -2,6 +2,7 @@ import { CheckCircle2, Info } from "lucide-react";
 import { Button } from "@/components/Button";
 import { Link } from "react-router-dom";
 import * as motion from "motion/react-client";
+import { Helmet } from "react-helmet-async";
 
 const plans = [
   {
@@ -62,6 +63,11 @@ const itemVariants = {
 export default function Services() {
   return (
     <div className="py-20 sm:py-24 bg-black min-h-screen">
+      <Helmet>
+        <title>Veva Automobile Genève - Nos Formules de Lavage</title>
+        <meta name="description" content="Découvrez nos formules de lavage de voiture sur Genève. Nettoyage intérieur, extérieur complet, prestations premium." />
+        <link rel="canonical" href="https://www.vevaautomobile.ch/services" />
+      </Helmet>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: -20 }}

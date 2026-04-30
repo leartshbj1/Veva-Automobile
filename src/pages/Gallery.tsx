@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import { X, ChevronRight } from "lucide-react";
 import { db } from "../firebase";
 import { collection, query, orderBy, getDocs } from "firebase/firestore";
+import { Helmet } from "react-helmet-async";
 
 interface GalleryImage {
   id: string;
@@ -83,6 +84,11 @@ export default function Gallery() {
 
   return (
     <div className="py-20 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>Veva Automobile Genève - Galerie et Avant/Après</title>
+        <meta name="description" content="Découvrez nos réalisations de nettoyage de voiture à Genève en photos. Avant/Après bluffant de nettoyage intérieur et lustrage carrosserie." />
+        <link rel="canonical" href="https://www.vevaautomobile.ch/gallery" />
+      </Helmet>
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

@@ -5,6 +5,7 @@ import { Calculator, CheckCircle2, MoveRight } from "lucide-react";
 import { collection, doc, setDoc } from "firebase/firestore";
 import { db, auth } from "@/firebase";
 import * as motion from "motion/react-client";
+import { Helmet } from "react-helmet-async";
 
 export default function Fleet() {
   const [vehicleCount, setVehicleCount] = useState<number>(5);
@@ -81,6 +82,11 @@ ${notes}`;
 
   return (
     <div className="flex flex-col">
+      <Helmet>
+        <title>Veva Automobile Genève - Lavage Flotte Entreprise</title>
+        <meta name="description" content="Service de lavage de voiture pour les flottes d'entreprise à Genève. Tarifs dégressifs, nettoyage professionnel sur-mesure de parc automobile." />
+        <link rel="canonical" href="https://www.vevaautomobile.ch/fleet" />
+      </Helmet>
       {/* Hero Section */}
       <section className="bg-zinc-950 py-16 sm:py-24 border-b border-zinc-900/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

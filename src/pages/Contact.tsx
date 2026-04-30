@@ -3,6 +3,7 @@ import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
 import { Phone, Mail, MapPin } from "lucide-react";
 import * as motion from "motion/react-client";
+import { Helmet } from "react-helmet-async";
 
 export default function Contact() {
   const [loading, setLoading] = useState(false);
@@ -36,6 +37,11 @@ ${message}`;
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-20 sm:py-24">
+      <Helmet>
+        <title>Veva Automobile Genève - Nous Contacter</title>
+        <meta name="description" content="Contactez Veva Automobile à Genève pour un lavage de voiture ou demander un devis. Prenez rendez-vous facilement par formulaire, email ou WhatsApp." />
+        <link rel="canonical" href="https://www.vevaautomobile.ch/contact" />
+      </Helmet>
       <div className="grid md:grid-cols-2 gap-16 items-start">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
