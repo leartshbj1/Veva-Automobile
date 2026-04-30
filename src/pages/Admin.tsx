@@ -53,7 +53,16 @@ export default function Admin() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((u) => {
       setUser(u);
-      if (u && (u.email === "leartshabija@gmail.com" || u.email === "valdrinmiftari130@gmail.com")) {
+      if (
+        u &&
+        [
+          "leartshabija@gmail.com",
+          "valdrinmiftari130@gmail.com",
+          "endi.0101gashi@gmail.com",
+          "valdrinv938@gmail.com",
+          "aldionfrangu@gmail.com"
+        ].includes(u.email)
+      ) {
         fetchProjects();
       }
     });
@@ -151,7 +160,16 @@ export default function Admin() {
     }
   };
 
-  if (!user || (user.email !== "leartshabija@gmail.com" && user.email !== "valdrinmiftari130@gmail.com")) {
+  if (
+    !user ||
+    ![
+      "leartshabija@gmail.com",
+      "valdrinmiftari130@gmail.com",
+      "endi.0101gashi@gmail.com",
+      "valdrinv938@gmail.com",
+      "aldionfrangu@gmail.com"
+    ].includes(user.email)
+  ) {
     return (
       <div className="min-h-screen bg-black flex flex-col items-center justify-center p-4">
         <div className="bg-zinc-900 absolute inset-0 z-[-1]" />
