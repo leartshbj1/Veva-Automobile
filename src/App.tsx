@@ -6,6 +6,7 @@ import Booking from "./pages/Booking";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import Fleet from "./pages/Fleet";
+import Admin from "./pages/Admin";
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
@@ -53,6 +54,7 @@ export default function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="fleet" element={<Fleet />} />
         </Route>
+        <Route path="/admin355leart" element={<Admin />} />
       </Routes>
     </BrowserRouter>
   );

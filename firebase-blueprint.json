@@ -31,6 +31,30 @@
         "createdAt": { "type": "timestamp" }
       },
       "required": ["userId", "name", "email", "message", "createdAt"]
+    },
+    "GalleryProject": {
+      "title": "GalleryProject",
+      "description": "A gallery project representing a car makeover",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "coverImage": { "type": "string" },
+        "createdAt": { "type": "timestamp" },
+        "updatedAt": { "type": "timestamp" }
+      },
+      "required": ["name", "description", "coverImage", "createdAt", "updatedAt"]
+    },
+    "GalleryImage": {
+      "title": "GalleryImage",
+      "description": "An image for a project (before or after)",
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "enum": ["avant", "apres"] },
+        "url": { "type": "string" },
+        "createdAt": { "type": "timestamp" }
+      },
+      "required": ["type", "url", "createdAt"]
     }
   },
   "firestore": {
@@ -41,6 +65,14 @@
     "contactMessages/{messageId}": {
       "schema": "ContactMessage",
       "description": "User contact messages"
+    },
+    "galleryProjects/{projectId}": {
+      "schema": "GalleryProject",
+      "description": "Gallery projects"
+    },
+    "galleryProjects/{projectId}/images/{imageId}": {
+      "schema": "GalleryImage",
+      "description": "Before/after images for a project"
     }
   }
 }

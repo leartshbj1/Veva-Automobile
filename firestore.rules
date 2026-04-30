@@ -1,17 +1,30 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    function isSignedIn() { return request.auth != null; }
+    function isAdmin() { 
+      return isSignedIn() && (request.auth.token.email == "leartshabija@gmail.com" || request.auth.token.email == "valdrinmiftari130@gmail.com"); 
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }
     match /appointments/{appointmentId} {
       allow list, read: if true;
       allow create: if true;
-      allow update, delete: if true;
+      allow update, delete: if isAdmin();
     }
     match /contactMessages/{messageId} {
       allow create: if true;
-      allow read, write: if false;
+      allow read, write: if isAdmin();
+    }
+    match /galleryProjects/{projectId} {
+      allow read, list: if true;
+      allow write: if isAdmin();
+    }
+    match /galleryProjects/{projectId}/images/{imageId} {
+      allow read, list: if true;
+      allow write: if isAdmin();
     }
   }
 }
