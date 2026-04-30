@@ -12,6 +12,47 @@ export default function Home() {
         <title>Veva Automobile Genève - Accueil</title>
         <meta name="description" content="Découvrez Veva Automobile, expert du lavage de voiture Genève. Service premium de nettoyage automobile intérieur et extérieur à la main." />
         <link rel="canonical" href="https://www.vevaautomobile.ch/" />
+        {/* FAQ JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Combien de temps dure un lavage complet ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "La durée varie selon la formule choisie et l'état de votre véhicule. En général, comptez entre 1h pour un entretien régulier et 2h30 pour un nettoyage en profondeur."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Dois-je prendre rendez-vous à l'avance ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Oui, nous fonctionnons uniquement sur rendez-vous pour vous garantir une prise en charge immédiate et le temps nécessaire pour un résultat impeccable."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Quels produits utilisez-vous pour le nettoyage ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Nous utilisons exclusivement des produits professionnels de haute qualité, respectueux de l'environnement et des matériaux de votre véhicule (cuir, alcantara, plastiques)."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Proposez-vous des tarifs pour les flottes d'entreprise ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolument ! Nous avons des offres sur-mesure et dégressives pour les professionnels. N'hésitez pas à consulter notre page Entreprises pour faire une simulation et nous contacter."
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
 
       {/* Hero Section */}

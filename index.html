@@ -30,6 +30,36 @@
     <link rel="icon" href="/logo.png" />
     <link rel="apple-touch-icon" href="/logo.png" />
     <link rel="canonical" href="https://www.vevaautomobile.ch/" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "AutoWash",
+        "name": "Veva Automobile",
+        "image": "https://www.vevaautomobile.ch/logo.png",
+        "url": "https://www.vevaautomobile.ch/",
+        "telephone": "+41797890190",
+        "email": "info@veva-automobile.ch",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Genève",
+          "addressRegion": "GE",
+          "addressCountry": "CH"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "46.204391",
+          "longitude": "6.143158"
+        },
+        "description": "Veva Automobile est votre spécialiste du nettoyage automobile à Genève. Prenez rendez-vous pour un lavage intérieur et extérieur à la main de qualité premium.",
+        "areaServed": {
+          "@type": "City",
+          "name": "Genève"
+        },
+        "priceRange": "$$"
+      }
+    </script>
   </head>
   <body class="bg-black text-white antialiased overflow-x-hidden">
     <div id="root"></div>

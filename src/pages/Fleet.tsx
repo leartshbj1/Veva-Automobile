@@ -86,6 +86,26 @@ ${notes}`;
         <title>Veva Automobile Genève - Lavage Flotte Entreprise</title>
         <meta name="description" content="Service de lavage de voiture pour les flottes d'entreprise à Genève. Tarifs dégressifs, nettoyage professionnel sur-mesure de parc automobile." />
         <link rel="canonical" href="https://www.vevaautomobile.ch/fleet" />
+        {/* B2B Service JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "B2B Fleet Car Wash / Lavage Flotte Automobile",
+            "provider": {
+              "@type": "AutoWash",
+              "name": "Veva Automobile",
+              "url": "https://www.vevaautomobile.ch"
+            },
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "Genève"
+              }
+            ],
+            "description": "Lavage de flotte d'entreprise sur-mesure à Genève. Entretien complet intérieur et extérieur avec tarifs dégressifs selon le volume."
+          })}
+        </script>
       </Helmet>
       {/* Hero Section */}
       <section className="bg-zinc-950 py-16 sm:py-24 border-b border-zinc-900/50">

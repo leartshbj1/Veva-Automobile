@@ -66,13 +66,13 @@ ${message}`;
               </div>
             </a>
             
-            <a href="mailto:info@vevalavage.ch" className="flex items-center gap-6 group cursor-pointer">
+            <a href="mailto:info@veva-automobile.ch" className="flex items-center gap-6 group cursor-pointer">
               <div className="w-14 h-14 bg-zinc-900 group-hover:bg-[#6bb315]/20 rounded-2xl flex items-center justify-center text-[#6bb315] transition-colors shadow-lg">
                 <Mail className="w-6 h-6" />
               </div>
               <div>
                 <p className="font-medium text-white group-hover:text-[#6bb315] transition-colors">Email</p>
-                <p className="text-zinc-400 font-light">info@vevalavage.ch</p>
+                <p className="text-zinc-400 font-light">info@veva-automobile.ch</p>
               </div>
             </a>
 

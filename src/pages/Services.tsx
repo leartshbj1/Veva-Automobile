@@ -67,6 +67,58 @@ export default function Services() {
         <title>Veva Automobile Genève - Nos Formules de Lavage</title>
         <meta name="description" content="Découvrez nos formules de lavage de voiture sur Genève. Nettoyage intérieur, extérieur complet, prestations premium." />
         <link rel="canonical" href="https://www.vevaautomobile.ch/services" />
+        {/* Services / Offers JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Car Wash / Nettoyage Automobile",
+            "provider": {
+              "@type": "AutoWash",
+              "name": "Veva Automobile",
+              "url": "https://www.vevaautomobile.ch"
+            },
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "Genève"
+              }
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Formules de lavage auto",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Lavage Citadine - Intérieur & Extérieur"
+                  },
+                  "price": "80.00",
+                  "priceCurrency": "CHF"
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Lavage Moyenne - Intérieur & Extérieur"
+                  },
+                  "price": "90.00",
+                  "priceCurrency": "CHF"
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Lavage Grande - Intérieur & Extérieur"
+                  },
+                  "price": "100.00",
+                  "priceCurrency": "CHF"
+                }
+              ]
+            }
+          })}
+        </script>
       </Helmet>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div 
