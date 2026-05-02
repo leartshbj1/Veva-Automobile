@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet-async";
 const plans = [
   {
     name: "Citadine",
-    price: "80.-",
+    price: "90.-",
     description: "Idéal pour un entretien régulier !",
     features: [
       "Aspiration complète",
@@ -20,7 +20,7 @@ const plans = [
   },
   {
     name: "Moyenne",
-    price: "90.-",
+    price: "110.-",
     description: "Propre à fond, dedans comme dehors !",
     isPopular: true,
     features: [
@@ -34,7 +34,7 @@ const plans = [
   },
   {
     name: "Grande",
-    price: "100.-",
+    price: "130.-",
     description: "Le meilleur soin pour votre véhicule !",
     features: [
       "Aspiration complète",
@@ -94,7 +94,7 @@ export default function Services() {
                     "@type": "Service",
                     "name": "Lavage Citadine - Intérieur & Extérieur"
                   },
-                  "price": "80.00",
+                  "price": "90.00",
                   "priceCurrency": "CHF"
                 },
                 {
@@ -103,7 +103,7 @@ export default function Services() {
                     "@type": "Service",
                     "name": "Lavage Moyenne - Intérieur & Extérieur"
                   },
-                  "price": "90.00",
+                  "price": "110.00",
                   "priceCurrency": "CHF"
                 },
                 {
@@ -112,7 +112,7 @@ export default function Services() {
                     "@type": "Service",
                     "name": "Lavage Grande - Intérieur & Extérieur"
                   },
-                  "price": "100.00",
+                  "price": "130.00",
                   "priceCurrency": "CHF"
                 }
               ]

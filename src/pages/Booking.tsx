@@ -215,9 +215,9 @@ export default function Booking() {
                 onChange={handleChange}
                 className="flex h-12 w-full rounded-xl border border-zinc-700 bg-zinc-900/50 px-4 py-2 text-sm text-zinc-100 placeholder:text-zinc-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6bb315] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 transition-colors hover:bg-zinc-900"
               >
-                <option value="Citadine">Citadine (80.-)</option>
-                <option value="Moyenne">Moyenne (90.-)</option>
-                <option value="Grande">Grande (100.-)</option>
+                <option value="Citadine">Citadine (90.-)</option>
+                <option value="Moyenne">Moyenne (110.-)</option>
+                <option value="Grande">Grande (130.-)</option>
               </select>
             </div>
 
