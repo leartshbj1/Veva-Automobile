@@ -135,7 +135,7 @@ export default function Layout() {
             </p>
             <address className="not-italic text-sm text-zinc-500">
               Genève, Suisse<br />
-              <a href="tel:+41797890190" className="hover:text-[#6bb315] transition-colors">+41 79 789 01 90</a>
+              <a href="tel:+41762383127" className="hover:text-[#6bb315] transition-colors">+41 76 238 31 27</a>
             </address>
           </div>
           <div className="text-sm text-zinc-500">
@@ -151,7 +151,7 @@ export default function Layout() {
 
       {/* Floating WhatsApp Button */}
       <a
-        href="https://wa.me/41797890190"
+        href="https://wa.me/41762383127"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2 focus:ring-offset-black"

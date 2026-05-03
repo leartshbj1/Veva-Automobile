@@ -77,7 +77,7 @@ ${notes}`;
 
   const createWhatsAppLink = () => {
     const msg = encodeURIComponent(`Bonjour Veva Automobile Genève,\nJe représente une entreprise et nous avons une flotte de ${vehicleCount} véhicules à laver.\nD'après votre simulateur, l'estimation est de ${totalPrice} CHF (${unitPrice} CHF/véhicule).\nPouvons-nous en discuter immédiatement ?`);
-    return `https://wa.me/41797890190?text=${msg}`;
+    return `https://wa.me/41762383127?text=${msg}`;
   };
 
   return (
