@@ -7,29 +7,53 @@ import * as motion from "motion/react-client";
 
 // Image compression utility
 function compressImage(file: File): Promise<string> {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = (event) => {
       const img = new Image();
       img.onload = () => {
         const canvas = document.createElement('canvas');
-        const MAX_WIDTH = 1200;
+        const MAX_DIMENSION = 800; // Reduced dimension to enforce smaller footprint
         let width = img.width;
         let height = img.height;
 
-        if (width > MAX_WIDTH) {
-          height = height * (MAX_WIDTH / width);
-          width = MAX_WIDTH;
+        if (width > height) {
+          if (width > MAX_DIMENSION) {
+            height *= MAX_DIMENSION / width;
+            width = MAX_DIMENSION;
+          }
+        } else {
+          if (height > MAX_DIMENSION) {
+            width *= MAX_DIMENSION / height;
+            height = MAX_DIMENSION;
+          }
         }
 
         canvas.width = width;
         canvas.height = height;
         const ctx = canvas.getContext('2d');
         ctx?.drawImage(img, 0, 0, width, height);
-        resolve(canvas.toDataURL('image/jpeg', 0.8));
+        
+        let quality = 0.8;
+        let dataUrl = canvas.toDataURL('image/jpeg', quality);
+        
+        // Firestore limit is 1,048,576 bytes. Base64 is ~33% larger.
+        // So we want the dataUrl length to be well under 1,000,000 chars.
+        while (dataUrl.length > 700000 && quality > 0.1) {
+          quality -= 0.1;
+          dataUrl = canvas.toDataURL('image/jpeg', quality);
+        }
+        
+        if (dataUrl.length > 900000) {
+           reject(new Error("Image is still too large after compression. Please use a smaller image."));
+        } else {
+           resolve(dataUrl);
+        }
       };
+      img.onerror = () => reject(new Error("Failed to load image"));
       img.src = event.target?.result as string;
     };
+    reader.onerror = () => reject(new Error("Failed to read file"));
     reader.readAsDataURL(file);
   });
 }
