@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence } from "motion/react";
 import * as motion from "motion/react-client";
 import Lenis from "lenis";
+import { Helmet } from "react-helmet-async";
+import { siteConfig } from "@/config";
 
 import { ErrorBoundary } from "./ErrorBoundary";
 
@@ -49,6 +51,27 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen bg-black text-zinc-100 font-sans selection:bg-[#6bb315] selection:text-white flex flex-col overflow-x-hidden w-full relative">
+      <Helmet>
+        <title>{siteConfig.name} - Nettoyage Intérieur & Extérieur</title>
+        <meta name="description" content={siteConfig.description} />
+        
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${siteConfig.url}${location.pathname}`} />
+        <meta property="og:title" content={`${siteConfig.name} - Nettoyage Intérieur & Extérieur`} />
+        <meta property="og:description" content={siteConfig.description} />
+        <meta property="og:image" content={`${siteConfig.url}/logo.png`} />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={`${siteConfig.url}${location.pathname}`} />
+        <meta property="twitter:title" content={`${siteConfig.name} - Nettoyage Intérieur & Extérieur`} />
+        <meta property="twitter:description" content={siteConfig.description} />
+        <meta property="twitter:image" content={`${siteConfig.url}/logo.png`} />
+
+        <link rel="canonical" href={`${siteConfig.url}${location.pathname}`} />
+      </Helmet>
+      
       <header className="sticky top-0 z-50 w-full border-b border-zinc-900 bg-black/90 backdrop-blur-sm">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link to="/" className="flex items-center gap-2">
@@ -134,13 +157,13 @@ export default function Layout() {
               Spécialiste du nettoyage automobile intérieur et extérieur.
             </p>
             <address className="not-italic text-sm text-zinc-500">
-              Genève, Suisse<br />
-              <a href="tel:+41762383127" className="hover:text-[#6bb315] transition-colors">+41 76 238 31 27</a>
+              {siteConfig.contact.address.city}, {siteConfig.contact.address.country}<br />
+              <a href={`tel:${siteConfig.contact.whatsapp}`} className="hover:text-[#6bb315] transition-colors">{siteConfig.contact.phone}</a>
             </address>
           </div>
           <div className="text-sm text-zinc-500">
             <p className="mb-2">
-              © {new Date().getFullYear()} Veva Automobile Genève. Tous droits réservés.
+              © {new Date().getFullYear()} {siteConfig.name} {siteConfig.contact.address.city}. Tous droits réservés.
             </p>
             <p className="text-xs text-zinc-600">
               Propre à fond, dedans comme dehors! Un lavage complet pour une voiture impeccable.
@@ -151,7 +174,7 @@ export default function Layout() {
 
       {/* Floating WhatsApp Button */}
       <a
-        href="https://wa.me/41762383127"
+        href={`https://wa.me/${siteConfig.contact.whatsapp}`}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2 focus:ring-offset-black"

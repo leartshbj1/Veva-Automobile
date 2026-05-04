@@ -3,12 +3,13 @@ import { Button } from "@/components/Button";
 import { Link } from "react-router-dom";
 import * as motion from "motion/react-client";
 import { Helmet } from "react-helmet-async";
+import { siteConfig } from "@/config";
 
 const plans = [
   {
-    name: "Citadine",
-    price: "90.-",
-    description: "Idéal pour un entretien régulier !",
+    name: siteConfig.services.citadine.name,
+    price: `${siteConfig.services.citadine.price}.-`,
+    description: siteConfig.services.citadine.description,
     features: [
       "Aspiration complète",
       "Nettoyage plastiques",
@@ -19,9 +20,9 @@ const plans = [
     ]
   },
   {
-    name: "Moyenne",
-    price: "110.-",
-    description: "Propre à fond, dedans comme dehors !",
+    name: siteConfig.services.moyenne.name,
+    price: `${siteConfig.services.moyenne.price}.-`,
+    description: siteConfig.services.moyenne.description,
     isPopular: true,
     features: [
       "Aspiration complète",
@@ -33,9 +34,9 @@ const plans = [
     ]
   },
   {
-    name: "Grande",
-    price: "130.-",
-    description: "Le meilleur soin pour votre véhicule !",
+    name: siteConfig.services.grande.name,
+    price: `${siteConfig.services.grande.price}.-`,
+    description: siteConfig.services.grande.description,
     features: [
       "Aspiration complète",
       "Nettoyage plastiques",
@@ -92,27 +93,27 @@ export default function Services() {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Lavage Citadine - Intérieur & Extérieur"
+                    "name": `Lavage ${siteConfig.services.citadine.name} - Intérieur & Extérieur`
                   },
-                  "price": "90.00",
+                  "price": `${siteConfig.services.citadine.price}.00`,
                   "priceCurrency": "CHF"
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Lavage Moyenne - Intérieur & Extérieur"
+                    "name": `Lavage ${siteConfig.services.moyenne.name} - Intérieur & Extérieur`
                   },
-                  "price": "110.00",
+                  "price": `${siteConfig.services.moyenne.price}.00`,
                   "priceCurrency": "CHF"
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Lavage Grande - Intérieur & Extérieur"
+                    "name": `Lavage ${siteConfig.services.grande.name} - Intérieur & Extérieur`
                   },
-                  "price": "130.00",
+                  "price": `${siteConfig.services.grande.price}.00`,
                   "priceCurrency": "CHF"
                 }
               ]

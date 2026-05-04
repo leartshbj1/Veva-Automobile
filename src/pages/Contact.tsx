@@ -4,6 +4,7 @@ import { Input } from "@/components/Input";
 import { Phone, Mail, MapPin } from "lucide-react";
 import * as motion from "motion/react-client";
 import { Helmet } from "react-helmet-async";
+import { siteConfig } from "@/config";
 
 export default function Contact() {
   const [loading, setLoading] = useState(false);
@@ -18,7 +19,7 @@ export default function Contact() {
     const vehicle = fd.get("vehicle") as string;
     const message = fd.get("message") as string;
 
-    const msg = `Bonjour Veva Automobile,
+    const msg = `Bonjour ${siteConfig.name},
 
 Nom: ${name}
 Email: ${email}
@@ -27,7 +28,7 @@ Véhicule: ${vehicle}
 Message: 
 ${message}`;
 
-    const whatsappUrl = `https://wa.me/41762383127?text=${encodeURIComponent(msg)}`;
+    const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(msg)}`;
     window.open(whatsappUrl, '_blank');
     
     setSuccess(true);
@@ -56,23 +57,23 @@ ${message}`;
           </p>
 
           <div className="space-y-8">
-            <a href="https://wa.me/41762383127" target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group cursor-pointer">
+            <a href={`https://wa.me/${siteConfig.contact.whatsapp}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group cursor-pointer">
               <div className="w-14 h-14 bg-zinc-900 group-hover:bg-[#6bb315]/20 rounded-2xl flex items-center justify-center text-[#6bb315] transition-colors shadow-lg">
                 <Phone className="w-6 h-6" />
               </div>
               <div>
                 <p className="font-medium text-white group-hover:text-[#6bb315] transition-colors">Téléphone / WhatsApp</p>
-                <p className="text-zinc-400 font-light">+41 76 238 31 27</p>
+                <p className="text-zinc-400 font-light">{siteConfig.contact.phone}</p>
               </div>
             </a>
             
-            <a href="mailto:info@veva-automobile.ch" className="flex items-center gap-6 group cursor-pointer">
+            <a href={`mailto:${siteConfig.contact.email}`} className="flex items-center gap-6 group cursor-pointer">
               <div className="w-14 h-14 bg-zinc-900 group-hover:bg-[#6bb315]/20 rounded-2xl flex items-center justify-center text-[#6bb315] transition-colors shadow-lg">
                 <Mail className="w-6 h-6" />
               </div>
               <div>
                 <p className="font-medium text-white group-hover:text-[#6bb315] transition-colors">Email</p>
-                <p className="text-zinc-400 font-light">info@veva-automobile.ch</p>
+                <p className="text-zinc-400 font-light">{siteConfig.contact.email}</p>
               </div>
             </a>
 
@@ -82,7 +83,7 @@ ${message}`;
               </div>
               <div>
                 <p className="font-medium text-white">Zone d'intervention</p>
-                <p className="text-zinc-400 font-light">Canton de Genève et alentours</p>
+                <p className="text-zinc-400 font-light">Canton de {siteConfig.contact.address.city} et alentours</p>
               </div>
             </div>
           </div>

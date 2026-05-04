@@ -6,6 +6,7 @@ import { collection, doc, setDoc } from "firebase/firestore";
 import { db, auth } from "@/firebase";
 import * as motion from "motion/react-client";
 import { Helmet } from "react-helmet-async";
+import { siteConfig } from "@/config";
 
 export default function Fleet() {
   const [vehicleCount, setVehicleCount] = useState<number>(5);
@@ -14,16 +15,16 @@ export default function Fleet() {
 
   // Dynamic pricing calculation
   const getEstimatedPrice = (count: number) => {
-    let basePrice = 90; // Standard price "Moyenne"
+    let basePrice = siteConfig.services.moyenne.price; // Standard price "Moyenne"
     
     if (count >= 20) {
       basePrice = 65; 
     } else if (count >= 10) {
       basePrice = 75;
     } else if (count >= 5) {
-      basePrice = 80;
+      basePrice = siteConfig.services.moyenne.price - 30; // 80 instead of 110
     } else if (count >= 3) {
-      basePrice = 85;
+      basePrice = siteConfig.services.moyenne.price - 25; // 85 instead of 110
     }
     
     return {
@@ -76,8 +77,8 @@ ${notes}`;
   };
 
   const createWhatsAppLink = () => {
-    const msg = encodeURIComponent(`Bonjour Veva Automobile Genève,\nJe représente une entreprise et nous avons une flotte de ${vehicleCount} véhicules à laver.\nD'après votre simulateur, l'estimation est de ${totalPrice} CHF (${unitPrice} CHF/véhicule).\nPouvons-nous en discuter immédiatement ?`);
-    return `https://wa.me/41762383127?text=${msg}`;
+    const msg = encodeURIComponent(`Bonjour ${siteConfig.name},\nJe représente une entreprise et nous avons une flotte de ${vehicleCount} véhicules à laver.\nD'après votre simulateur, l'estimation est de ${totalPrice} CHF (${unitPrice} CHF/véhicule).\nPouvons-nous en discuter immédiatement ?`);
+    return `https://wa.me/${siteConfig.contact.whatsapp}?text=${msg}`;
   };
 
   return (
